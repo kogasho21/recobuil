@@ -7,7 +7,6 @@
 	<small>投稿日：{{ date("Y年 m月 d日",strtotime($post->created_at)) }}</small>
 </h2>
 
-<img class="image" src="{{ asset($post -> image) }}" alt="image">
 
 <h5>カテゴリー：{{ $post->cat_name }}</h5>
 <h5>{{ $post->content }}</h5>
