@@ -17,7 +17,8 @@ class PostsController extends Controller
 
 	public function show($id)
 	{
-		$post  = \DB::table('posts') ->select('posts.id as post_id', 'posts.title as title','posts.content','posts.image','posts.created_at','categories.name as cat_name' ) ->  where('posts.id', $id) -> leftjoin('categories', 'posts.cat_id', '=', 'categories.id') ->get() ->first();
+		// $post  = \DB::table('posts') ->select('posts.id as post_id', 'posts.title as title','posts.content','posts.image','posts.created_at','categories.name as cat_name' ) ->  where('posts.id', $id) -> leftjoin('categories', 'posts.cat_id', '=', 'categories.id') ->get() ->first();
+		$post  = \DB::table('posts') ->select('posts.id as post_id', 'posts.title as title','posts.content','posts.created_at','categories.name as cat_name' ) ->  where('posts.id', $id) -> leftjoin('categories', 'posts.cat_id', '=', 'categories.id') ->get() ->first();
 
 		$comments = \DB::table('posts') ->select('comments.commenter', 'comments.comment') -> leftjoin('comments', 'posts.id', '=', 'comments.post_id')  ->  where('posts.id', $id) -> get();
 		return view('bbc.single')->with(['post' => $post, 'comments' => $comments, 'id' => $id]);
@@ -28,24 +29,24 @@ class PostsController extends Controller
 	        'title' => 'required|max:50',
 	        'content' => 'required|max:200',
 	        'cat_id' => 'required',
-	        'image' => 'required|file|image|max:4000',
+	        // 'image' => 'required|file|image|max:4000',
 	    ]);
 
-	    $file = $params['image'];
+	    // $file = $params['image'];
 
-		$image = \Image::make(file_get_contents($file->getRealPath()));
-		$image
-	      ->save(public_path().'/images/'.$file->hashName());
+		// $image = \Image::make(file_get_contents($file->getRealPath()));
+		// $image
+	 //      ->save(public_path().'/images/'.$file->hashName());
 
-	    $ext = $file->getClientOriginalExtension();
+	    // $ext = $file->getClientOriginalExtension();
 
 	    //圧縮率はデフォルト
-	    if($ext == 'jpg' or $ext == 'jpeg') {
-	    	imagejpeg(imagecreatefromjpeg($file),public_path().'/images/'.'compre'.$file->hashName());
-	    } elseif($ext == 'png') {
-	    	imagepng(imagecreatefrompng($file),public_path().'/images/'.'comore'.$file->hashName());
-	    }
-	    $params['image'] = '/images/'.$file->hashName();
+	    // if($ext == 'jpg' or $ext == 'jpeg') {
+	    // 	imagejpeg(imagecreatefromjpeg($file),public_path().'/images/'.'compre'.$file->hashName());
+	    // } elseif($ext == 'png') {
+	    // 	imagepng(imagecreatefrompng($file),public_path().'/images/'.'comore'.$file->hashName());
+	    // }
+	    // $params['image'] = '/images/'.$file->hashName();
 
 
 	    \DB::table('posts')->insert($params);

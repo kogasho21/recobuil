@@ -1,4 +1,4 @@
-@extends('layouts.default')
+<!-- @extends('layouts.default') -->
 @section('content')
 
 <div class="col-xs-8 col-xs-offset-2">
@@ -41,12 +41,12 @@
 		</div>
 	</div>
 
-	<div class="form-group">
+<!-- 	<div class="form-group">
 		<label for="image" class="">添付ファイル</label>
 		<div class="">
 		{{ Form::file('image', null) }}
 		</div>
-	</div>
+	</div> -->
 
 	<div class="form-group">
 		<label for="content" class="">本文</label>
