@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddImagePostsTable extends Migration
+class CreateArchitectTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddImagePostsTable extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->string('image');
+        Schema::create('architect', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->timestamps();
         });
     }
 
@@ -25,6 +26,6 @@ class AddImagePostsTable extends Migration
      */
     public function down()
     {
-    //     $table->dropColumn('image');
+        Schema::dropIfExists('architect');
     }
 }

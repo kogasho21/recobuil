@@ -25,6 +25,6 @@ class AddImagePostsTable extends Migration
      */
     public function down()
     {
-        $table->dropColumn('image');
+    //     $table->dropColumn('image');
     }
 }
