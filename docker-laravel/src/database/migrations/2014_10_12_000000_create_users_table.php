@@ -22,6 +22,12 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->date('birthday');
+            $table->string('job');
+            $table->integer('prefecture')->nullable();
+            $table->integer('hope_prefecture')->nullable();
+            $table->text('introduction');
+            $table->string('acount')->nullable();
         });
     }
 
