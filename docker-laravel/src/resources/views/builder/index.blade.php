@@ -17,6 +17,7 @@
 	<p>性別：{{$builder->builder_unisex}}</p>
 	<p>メールアドレス：{{$builder->builder_mail_address}}</p>
 	<p>電話番号：{{$builder->builder_tell_no}}</p>
+	<p>{{ link_to("/builder/{$builder->builder_id}/show", '続きを読む', array('class' => 'btn btn-primary')) }}</p>
 	<hr />
 
 @endforeach

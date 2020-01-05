@@ -15,11 +15,15 @@ class CreateBuildersTable extends Migration
     {
         Schema::create('builders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->date('birthday');
-            $table->string('unisex');
-            $table->string('mail_address');
-            $table->string('tell_no');
+            $table->string('name');//名前
+            $table->string('office');//事業所名
+            $table->string('address');//住所
+            $table->string('mail_address');//メールアドレス
+            $table->string('tell_no');//電話番号
+            $table->string('unisex');//性別
+            $table->date('birthday');//誕生日
+            $table->string('homepage');//ホームページ
+            $table->text('career');//経歴
             $table->timestamps();
         });
     }

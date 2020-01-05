@@ -13,14 +13,31 @@ class BuilderController extends Controller
 		return view('builder.index')->with('builders',$builders);
 	}
 
+    public function show(Request $request,$id)
+    {
+		$builder  = \DB::table('builders') ->select('builders.id as builder_id', 'builders.name as name','builders.birthday','builders.unisex','builders.mail_address as mail_address','builders.tell_no as tell_no' ) ->  where('builders.id', $id) ->get() ->first();
+
+		$data = array('builder'=>$builder);
+
+		return view('builder.show')->with($data);
+    }
+
 	public function store(Request $request)
 	{
 	    $params = $request->validate([
-	        'name' => 'required|max:50',
-	        'birthday' => 'required|max:200',
-	        'unisex' => 'required',
-	        'mail_address' => 'required|max:100',
-	        'tell_no' => 'required|max:12',
+	        'builder_id' => 'required',
+	        'photo1' => 'required',
+	        'photo2' => 'required',
+	        'photo3' => 'required',
+	        'office' => 'required|max:30',
+	        'place' => 'required|max:50',
+	        'completionDate' => 'required|max:20',
+	        'floorarea' => 'required|max:10',
+	        'money' => 'required|max:20',
+	        'siteArea' => 'required|max:20',
+	        'buildingArea' => 'required|max:20',
+	        'buildingStructure' => 'required|max:20',
+	        'type' => 'required|max:20',
 	    ]);
 
 	    \DB::table('builders')->insert($params);

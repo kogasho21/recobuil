@@ -3,55 +3,112 @@
 
 <div class="col-xs-8 col-xs-offset-2">
 
-<h1>投稿ページ</h1>
+<h1>建築作成ページ</h1>
 
-{{-- 投稿完了時にフラッシュメッセージを表示 --}}
-@if(Session::has('message'))
-	<div class="bg-info">
-		<p>{{ Session::get('message') }}</p>
-	</div>
-@endif
-
-{{-- エラーメッセージの表示 --}}
-@foreach($errors->all() as $message)
-	<p class="bg-danger">{{ $message }}</p>
-@endforeach
-
-{{ Form::open(['route' => 'bbc.store', 'files' => true ], array('class' => 'form')) }}
+{{ Form::open(['route' => 'build.store', 'files' => true ], array('class' => 'form')) }}
 
 	<div class="form-group">
-		<label for="title" class="">タイトル</label>
+		<label for="title" class="">建築者ID</label>
 		<div class="">
-			{{ Form::text('title', null, array('class' => '')) }}
+			{{ Form::text('builder_id', null, array('class' => '')) }}
+			{{ $errors->first('builder_id') }}
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label for="cat_id" class="">カテゴリー</label>
+		<label for="photo1" class="">建物写真1</label>
 		<div class="">
-			<select name="cat_id" type="text" class="">
-				<option></option>
-				<option value="1" name="1">食事</option>
-				<option value="2" name="2">買い物</option>
-				<option value="3" name="3">恋愛</option>
-				<option value="4" name="4">雑談</option>
-				<option value="5" name="5">エンタメ</option>
-				<option value="6" name="6">その他</option>
-			</select>
+		{{ Form::text('photo1', null, array('class' => '')) }}
+		{{ $errors->first('photo1') }}
 		</div>
 	</div>
 
-<!-- 	<div class="form-group">
-		<label for="image" class="">添付ファイル</label>
+	<div class="form-group">
+		<label for="title" class="">建物写真2</label>
 		<div class="">
-		{{ Form::file('image', null) }}
+			{{ Form::text('photo2', null, array('class' => '')) }}
+			{{ $errors->first('photo2') }}
 		</div>
-	</div> -->
+	</div>
 
 	<div class="form-group">
-		<label for="content" class="">本文</label>
+		<label for="title" class="">建物写真3</label>
 		<div class="">
-			{{ Form::textarea('content', null, array('class' => '')) }}
+			{{ Form::text('photo3', null, array('class' => '')) }}
+			{{ $errors->first('photo3') }}
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label for="title" class="">事務所</label>
+		<div class="">
+			{{ Form::text('office', null, array('class' => '')) }}
+			{{ $errors->first('office') }}
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="title" class="">場所</label>
+		<div class="">
+			{{ Form::text('place', null, array('class' => '')) }}
+			{{ $errors->first('place') }}
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="title" class="">竣工日</label>
+		<div class="">
+			{{ Form::text('completionDate', null, array('class' => '')) }}
+			{{ $errors->first('completionDate') }}
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="title" class="">延べ床面積</label>
+		<div class="">
+			{{ Form::text('floorarea', null, array('class' => '')) }}
+			{{ $errors->first('floorarea') }}
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="title" class="">金額</label>
+		<div class="">
+			{{ Form::text('money', null, array('class' => '')) }}
+			{{ $errors->first('money') }}
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="title" class="">敷地面積</label>
+		<div class="">
+			{{ Form::text('siteArea', null, array('class' => '')) }}
+			{{ $errors->first('siteArea') }}
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="title" class="">建物面積</label>
+		<div class="">
+			{{ Form::text('buildingArea', null, array('class' => '')) }}
+			{{ $errors->first('buildingArea') }}
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="title" class="">建物構造</label>
+		<div class="">
+			{{ Form::text('buildingStructure', null, array('class' => '')) }}
+			{{ $errors->first('buildingStructure') }}
+		</div>
+	</div>
+
+		<div class="form-group">
+		<label for="title" class="">タイプ</label>
+		<div class="">
+			{{ Form::text('type', null, array('class' => '')) }}
+			{{ $errors->first('type') }}
 		</div>
 	</div>
 
@@ -61,11 +118,13 @@
 
 {{ Form::close() }}
 
-</div>
 
 <ul class="navbar-nav mr-auto">
-    <a href="{{ route('bbc.index') }}" class="btn btn-primary">掲示板一覧へ戻る
-    </a>
+	<p>{{ link_to("/build", '建築物一覧', array('class' => 'btn btn-primary')) }}</p>
+    <hr />
 </ul>
+
+</div>
+
 
 @stop

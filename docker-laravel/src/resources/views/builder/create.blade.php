@@ -15,16 +15,16 @@
 	</div>
 
 	<div class="form-group">
-		<label for="title" class="">誕生日</label>
+		<label for="title" class="">事業所名</label>
 		<div class="">
-			{{ Form::text('birthday', null, array('class' => '')) }}
+			{{ Form::text('office', null, array('class' => '')) }}
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label for="title" class="">性別</label>
+		<label for="title" class="">住所</label>
 		<div class="">
-			{{ Form::text('unisex', null, array('class' => '')) }}
+			{{ Form::text('address', null, array('class' => '')) }}
 		</div>
 	</div>
 
@@ -39,6 +39,38 @@
 		<label for="title" class="">電話番号</label>
 		<div class="">
 			{{ Form::text('tell_no', null, array('class' => '')) }}
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="title" class="">誕生日</label>
+		<div class="">
+			{{ Form::text('birthday', null, array('class' => '')) }}
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="title" class="">性別</label>
+		<div class="">
+			{{ Form::text('unisex', null, array('class' => '')) }}
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="title" class="">誕生日</label>
+		<div class="">
+			{{ Form::text('birthday', null, array('class' => '')) }}
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="title" class="">ホームページ</label>
+		<div class="">
+			{{ Form::text('homepage', null, array('class' => '')) }}
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="title" class="">経歴</label>
+		<div class="">
+			{{ Form::text('career', null, array('class' => '')) }}
 		</div>
 	</div>
 	<div class="form-group">

@@ -17,6 +17,8 @@ Route::get('/', function () {
 Route::resource('bbc', 'PostsController');
 Route::resource('mypage', 'MypageController');
 Route::resource('akiya', 'AkiyaController');
+Route::resource('builder', 'BuilderController');
+Route::resource('build', 'BuildController');
 
 Route::get('/akiya/{id}/show', 'AkiyaController@show');
 Route::get('/akiya', 'AkiyaController@index');

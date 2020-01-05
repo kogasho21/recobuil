@@ -29,7 +29,7 @@ class PostsController extends Controller
 	        'title' => 'required|max:50',
 	        'content' => 'required|max:200',
 	        'cat_id' => 'required',
-	        // 'image' => 'required|file|image|max:4000',
+	        'image' => 'required|file|image|max:4000',
 	    ]);
 
 	    $file = $params['image'];
