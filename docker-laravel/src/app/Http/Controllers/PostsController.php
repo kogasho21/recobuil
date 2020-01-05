@@ -32,21 +32,21 @@ class PostsController extends Controller
 	        // 'image' => 'required|file|image|max:4000',
 	    ]);
 
-	    $file = $params['image'];
+	    // $file = $params['image'];
 
-		$image = \Image::make(file_get_contents($file->getRealPath()));
-		$image
-	      ->save(public_path().'/images/'.$file->hashName());
+		// $image = \Image::make(file_get_contents($file->getRealPath()));
+		// $image
+	 //      ->save(public_path().'/images/'.$file->hashName());
 
-	    $ext = $file->getClientOriginalExtension();
+	    // $ext = $file->getClientOriginalExtension();
 
-	    圧縮率はデフォルト
-	    if($ext == 'jpg' or $ext == 'jpeg') {
-	    	imagejpeg(imagecreatefromjpeg($file),public_path().'/images/'.'compre'.$file->hashName());
-	    } elseif($ext == 'png') {
-	    	imagepng(imagecreatefrompng($file),public_path().'/images/'.'comore'.$file->hashName());
-	    }
-	    $params['image'] = '/images/'.$file->hashName();
+	    //圧縮率はデフォルト
+	    // if($ext == 'jpg' or $ext == 'jpeg') {
+	    // 	imagejpeg(imagecreatefromjpeg($file),public_path().'/images/'.'compre'.$file->hashName());
+	    // } elseif($ext == 'png') {
+	    // 	imagepng(imagecreatefrompng($file),public_path().'/images/'.'comore'.$file->hashName());
+	    // }
+	    // $params['image'] = '/images/'.$file->hashName();
 
 
 	    \DB::table('posts')->insert($params);
