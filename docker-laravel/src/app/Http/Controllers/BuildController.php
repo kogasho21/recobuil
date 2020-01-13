@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class BuildController extends Controller
 {
@@ -41,6 +42,22 @@ class BuildController extends Controller
             'buildingStructure' => 'required',
             'type' => 'required',
         ]);
+
+
+        $file=$request->file('photo1');
+        $photo = new Imagick($file);
+        $fileName=str_random(20).'.'.$file->getClientOriginalExtension();
+        Image::make($file)->save(public_path('images/'.$fileName));
+
+        $file = $params['photo2'];
+        $image = Image::make(file_get_contents($file->getRealPath()));
+        $image
+          ->save(public_path().'/images/'.$file->hashName());
+
+        $file = $params['photo3'];
+        $image = Image::make(file_get_contents($file->getRealPath()));
+        $image
+          ->save(public_path().'/images/'.$file->hashName());
 
         // dd($request);
 

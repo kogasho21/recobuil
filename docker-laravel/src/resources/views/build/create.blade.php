@@ -18,7 +18,7 @@
 	<div class="form-group">
 		<label for="photo1" class="">建物写真1</label>
 		<div class="">
-		{{ Form::text('photo1', null, array('class' => '')) }}
+		{{ Form::file('photo1', null, array('class' => '')) }}
 		{{ $errors->first('photo1') }}
 		</div>
 	</div>
@@ -26,7 +26,7 @@
 	<div class="form-group">
 		<label for="title" class="">建物写真2</label>
 		<div class="">
-			{{ Form::text('photo2', null, array('class' => '')) }}
+			{{ Form::file('photo2', null, array('class' => '')) }}
 			{{ $errors->first('photo2') }}
 		</div>
 	</div>
@@ -34,7 +34,7 @@
 	<div class="form-group">
 		<label for="title" class="">建物写真3</label>
 		<div class="">
-			{{ Form::text('photo3', null, array('class' => '')) }}
+			{{ Form::file('photo3', null, array('class' => '')) }}
 			{{ $errors->first('photo3') }}
 		</div>
 	</div>
@@ -59,7 +59,7 @@
 	<div class="form-group">
 		<label for="title" class="">竣工日</label>
 		<div class="">
-			{{ Form::text('completionDate', null, array('class' => '')) }}
+			{!! Form::input('date', 'completionDate', date('Y-m-d'), ['class' => 'form-control']) !!}
 			{{ $errors->first('completionDate') }}
 		</div>
 	</div>
@@ -104,13 +104,14 @@
 		</div>
 	</div>
 
-		<div class="form-group">
+	<div class="form-group">
 		<label for="title" class="">タイプ</label>
 		<div class="">
 			{{ Form::text('type', null, array('class' => '')) }}
 			{{ $errors->first('type') }}
 		</div>
 	</div>
+
 
 	<div class="form-group">
 		<button type="submit" class="btn btn-primary">投稿する</button>

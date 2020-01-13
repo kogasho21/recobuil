@@ -12,6 +12,7 @@ ARG TZ
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /composer
 
+
 RUN set -eux && \
   apk update && \
   apk add --update --no-cache --virtual=.build-dependencies \
@@ -35,3 +36,5 @@ RUN set -eux && \
   curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
   composer config -g repos.packagist composer https://packagist.jp && \
   composer global require hirak/prestissimo
+
+

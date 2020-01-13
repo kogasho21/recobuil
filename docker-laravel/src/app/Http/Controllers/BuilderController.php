@@ -8,7 +8,8 @@ class BuilderController extends Controller
 {
 	public function index()
 	{
-		$builders = \DB::table('builders') ->select('builders.id as builder_id', 'builders.name as name','builders.birthday','builders.unisex as builder_unisex','builders.mail_address as builder_mail_address','builders.tell_no as builder_tell_no' ) -> orderBy('builders.id', 'desc') -> get();
+	// 	$builders = \DB::table('builders') ->select('builders.id as builder_id', 'builders.name as name','builders.birthday','builders.unisex as builder_unisex','builders.mail_address as builder_mail_address','builders.tell_no as builder_tell_no' ) -> orderBy('builders.id', 'desc') -> get();
+		$builders = \DB::table('builders') ->select('builders.id as builder_id' ) -> orderBy('builders.id', 'desc') -> get();
 
 		return view('builder.index')->with('builders',$builders);
 	}
@@ -26,9 +27,9 @@ class BuilderController extends Controller
 	{
 	    $params = $request->validate([
 	        'builder_id' => 'required',
-	        'photo1' => 'required',
-	        'photo2' => 'required',
-	        'photo3' => 'required',
+            'photo1' => 'nullable',
+            'photo2' => 'nullable',
+            'photo3' => 'nullable',
 	        'office' => 'required|max:30',
 	        'place' => 'required|max:50',
 	        'completionDate' => 'required|max:20',

@@ -8,18 +8,19 @@
     <hr />
 </div>
 
+@isset($builds)
 @foreach($builds as $build)
 
-	<h2>建築者ID：{{ $builr->builder_id }}
+	<h2>建築物ID：{{ $build->build_id }}
 	</h2>
-	<p>誕生日：{{ $builr->birthdays}}</p>
-	<p>性別：{{$builder->builder_unisex}}</p>
-	<p>メールアドレス：{{$builder->builder_mail_address}}</p>
-	<p>電話番号：{{$builder->builder_tell_no}}</p>
-	<p>{{ link_to("/build/{$builder->builder_id}/show", '続きを読む', array('class' => 'btn btn-primary')) }}</p>
+	<p>事務所名：{{ $build->office}}</p>
+	<p>場所：{{$build->place}}</p>
+	<p>竣工日：{{$build->completionDate}}</p>
+	<p>{{ link_to("/build/{$build->build_id}/show", '続きを読む', array('class' => 'btn btn-primary')) }}</p>
 	<hr />
 
 @endforeach
+@endisset
 
 
 </div>
