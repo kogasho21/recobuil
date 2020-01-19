@@ -12,7 +12,7 @@ ARG TZ
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /composer
 
-
+RUN docker-php-ext-install gd
 RUN set -eux && \
   apk update && \
   apk add --update --no-cache --virtual=.build-dependencies \

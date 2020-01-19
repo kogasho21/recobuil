@@ -19,6 +19,7 @@ Route::resource('mypage', 'MypageController');
 Route::resource('akiya', 'AkiyaController');
 Route::resource('builder', 'BuilderController');
 Route::resource('build', 'BuildController');
+Route::resource('/photos', 'PhotosController', ['only' => ['create', 'store']]);
 
 Route::get('/akiya/{id}/show', 'AkiyaController@show');
 Route::get('/akiya', 'AkiyaController@index');
