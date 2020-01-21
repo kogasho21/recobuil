@@ -4,9 +4,12 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Example Component</div>
-
                     <div class="card-body">
-                        I'm an example component.
+                        <ul>
+                            <li v-for="(user, key) in users" :key="key">
+                                {{ user.name }}
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -15,9 +18,14 @@
 </template>
 
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
+export default {
+    data() {
+        return {
+            users: []
+        };
+    },
+    mounted() {
+        axios.get("/users").then(response => (this.users = response.data));
     }
+};
 </script>
