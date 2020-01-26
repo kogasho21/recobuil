@@ -26,6 +26,6 @@ class FavoriteClothesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('avoriteclothes');
+        Schema::dropIfExists('favoriteclothes');
     }
 }

@@ -39,8 +39,6 @@ class PostsController extends Controller
 	      ->save(public_path().'/images/'.$file->hashName());
 
 	    $ext = $file->getClientOriginalExtension();
-
-	    圧縮率はデフォルト
 	    if($ext == 'jpg' or $ext == 'jpeg') {
 	    	imagejpeg(imagecreatefromjpeg($file),public_path().'/images/'.'compre'.$file->hashName());
 	    } elseif($ext == 'png') {

@@ -5,7 +5,7 @@
 
 <h1>好きなもの登録ページ</h1>
 
-{{ Form::open(['route' => 'match.store', 'files' => true ], array('class' => 'form')) }}
+{{ Form::open(['action' => 'MatchController@store'], array('class' => 'form')) }}
 
 	<div class="form-group">
 		<label for="clothes" class="">服</label>
@@ -24,14 +24,19 @@
 
 			{{Form::label('clothes', 'エレガント')}}
 			{{Form::radio('clothes', 'エレガント')}}
+
 			{{Form::label('clothes', 'マニッシュ')}}
 			{{Form::radio('clothes', 'マニッシュ')}}
+
 			{{Form::label('clothes', 'モダン')}}
 			{{Form::radio('clothes', 'モダン')}}
+			
 			{{Form::label('clothes', 'ナチュラル')}}
 			{{Form::radio('clothes', 'ナチュラル')}}
+			
 			{{Form::label('clothes', 'スポーティ')}}
 			{{Form::radio('clothes', 'スポーティ')}}
+			{{ $errors->first('clothes') }}
 		</div>
 	</div>
 
@@ -64,6 +69,7 @@
 		
 			{{Form::label('book', 'アート・建築')}}
 			{{Form::radio('book', 'アート・建築')}}
+			{{ $errors->first('book') }}
 		</div>
 	</div>
 
@@ -88,6 +94,7 @@
 			{{Form::radio('move', '時代劇')}}
 			{{Form::label('move', 'ミュージカル')}}
 			{{Form::radio('move', 'ミュージカル')}}
+			{{ $errors->first('move') }}
 		</div>
 	</div>
 
@@ -112,6 +119,7 @@
 			{{Form::radio('music', 'ジャズ')}}
 			{{Form::label('music', '演歌')}}
 			{{Form::radio('music', '演歌')}}
+			{{ $errors->first('music') }}
 		</div>
 	</div>
 
